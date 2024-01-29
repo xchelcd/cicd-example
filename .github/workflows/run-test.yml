@@ -52,6 +52,6 @@ jobs:
       - name: xcode setup
         uses: maxim-lobanov/setup-xcode@v1
       - name: Run CICD Unit-Testing
-        run: xcodebuild clean test -project "CICD.xcodeproj" -scheme CICD -destination "platform=iOS Simulator,name=iPhone 15 Pro"
+        run: xcodebuild clean test -project "CICD.xcodeproj" -scheme CICD -destination "platform=iOS Simulator,name=Any iOS Simulator Device,id=dvtdevice-DVTiOSDeviceSimulatorPlaceholder-iphonesimulator:placeholder"
         
 
