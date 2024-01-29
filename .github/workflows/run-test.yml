@@ -19,6 +19,15 @@ jobs:
       - name: build
         run: xcodebuild build -project CICD.xcodeproj -scheme CICD clean build -sdk iphoneos CODE_SIGNING_ALLOWED=No
         
+  devices-availables:
+    name: check devices
+    run-on: macos-latest
+    steps:
+      - name: xcode setup
+        uses: maxim-lobanov/setup-xcode@v1
+      - name: devices
+        run xcrun simctl list devices
+        
   ui-test:
     name: UITest
     runs-on: macos-latest
