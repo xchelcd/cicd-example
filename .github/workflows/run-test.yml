@@ -1,0 +1,45 @@
+name: UI & Unit Test
+
+on:
+  push:
+    branches: [ "master", "dev", "github-actions" ]
+  pull_request:
+    branches: [ "master", "dev"]
+
+jobs:
+  build:
+    name: CICD-example build
+    runs-on: macos-latest
+
+    steps:
+      - name: check out project
+        uses: actions/checkout@v4
+      #- name: Show current xcode version
+      #  run xcodebuild -version
+      - name: Build CICD-example
+        run: xcodebuild -project "CICD.xcodeproj" -scheme CICD -destination 'platform=iOS Simulator,name=iPhone 13 Pro Max'
+        #run: xcodebuild build
+        
+  ui-test:
+    name: UITest
+    runs-on: macos-latest
+    steps:
+      - name: Check out project
+        uses: actions/checkout@v4
+        with:
+          swift-version: "5.9.2"
+      - name: Run CICD-example UI-Testing
+        run: xcodebuild clean test -project "CICD.xcodeproj" -scheme CICDUITests -destination 'platform=iOS Simulator,name=iPhone 13 Pro Max'
+
+  unit-test:
+    name: UnitsTest
+    runs-on: macos-latest
+    steps:
+      - name: Check out project
+        uses: actions/checkout@v4
+        with:
+          swift-version: "5.9.2"
+      - name: Run CICD Unit-Testing
+        run: xcodebuild clean test -project "CICD.xcodeproj" -scheme CICDTests -destination 'platform=iOS Simulator,name=iPhone 13 Pro Max'
+        
+
