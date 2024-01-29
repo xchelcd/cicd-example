@@ -14,8 +14,8 @@ jobs:
     steps:
       - name: check out project
         uses: actions/checkout@v4
-      - name: xcode setup
-        uses: maxim-lobanov/setup-xcode@v1
+      #- name: xcode setup
+      #  uses: maxim-lobanov/setup-xcode@v1
       - name: build
         run: xcodebuild build -project CICD.xcodeproj -scheme CICD clean build -sdk iphoneos CODE_SIGNING_ALLOWED=No
         
