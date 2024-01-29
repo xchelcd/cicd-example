@@ -29,10 +29,10 @@ jobs:
         with:
           swift-version: "5.9.2"
       - name: Run CICD-example UI-Testing
-        run: xcodebuild clean test -project "CICD.xcodeproj" -scheme CICDUITests -destination 'platform=iOS Simulator,name=iPhone 13 Pro Max'
+        run: xcodebuild clean test -project "CICD.xcodeproj" -scheme CICDUITests -destination "platform=iOS Simulator,name=iPhone 11 Pro Max,OS=latest"
 
   unit-test:
-    name: UnitsTest
+    name: UnitTest
     runs-on: macos-latest
     steps:
       - name: Check out project
@@ -40,6 +40,6 @@ jobs:
         with:
           swift-version: "5.9.2"
       - name: Run CICD Unit-Testing
-        run: xcodebuild clean test -project "CICD.xcodeproj" -scheme CICDTests -destination 'platform=iOS Simulator,name=iPhone 13 Pro Max'
+        run: xcodebuild clean test -project "CICD.xcodeproj" -scheme CICDTests -destination "platform=iOS Simulator,name=iPhone 11 Pro Max,OS=latest"
         
 
