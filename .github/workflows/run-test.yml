@@ -17,7 +17,7 @@ jobs:
       #- name: Show current xcode version
       #  run xcodebuild -version
       - name: Build CICD-example
-        run: xcodebuild -project "CICD.xcodeproj" -scheme CICD -destination 'platform=iOS Simulator,name=iPhone 13 Pro Max'
+        run: xcodebuild -project "CICD.xcodeproj" -scheme CICD -destination 'platform=iOS Simulator,name=Any iOS Device'
         #run: xcodebuild build
         
   ui-test:
