@@ -2,9 +2,9 @@ name: UI & Unit Test
 
 on:
   push:
-    branches: [ "master", "dev", "github-actions" ]
+    branches: [ "main", "dev", "github-actions" ]
   pull_request:
-    branches: [ "master", "dev"]
+    branches: [ "main", "dev"]
 
 jobs:
   build:
