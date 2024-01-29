@@ -21,7 +21,7 @@ jobs:
         
   devices-availables:
     name: check devices
-    run-on: macos-latest
+    runs-on: macos-latest
     steps:
       - name: xcode setup
         uses: maxim-lobanov/setup-xcode@v1
