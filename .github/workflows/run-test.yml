@@ -17,9 +17,7 @@ jobs:
       - name: xcode setup
         uses: maxim-lobanov/setup-xcode@v1
       - name: build
-        run: |
-          cd CICD
-          xcodebuild build -project CICD.xcodeproj -scheme CICD clean build -sdk iphoneos CODE_SIGNING_ALLOWED=No
+        run: xcodebuild build -project CICD.xcodeproj -scheme CICD clean build -sdk iphoneos CODE_SIGNING_ALLOWED=No
         
   ui-test:
     name: UITest
@@ -32,9 +30,7 @@ jobs:
       - name: xcode setup
         uses: maxim-lobanov/setup-xcode@v1
       - name: Run CICD-example UI-Testing
-        run: |
-          cd CICD
-          xcodebuild test -project CICD.xcodeproj -scheme CICDUITests clean build -sdk iphoneos -destination "platform=iOS Simulator,OS=16.1,name=iPhone 14 Pro Max" CODE_SIGNING_ALLOWED=No
+        run: xcodebuild test -project CICD.xcodeproj -scheme CICDUITests clean build -sdk iphoneos -destination "platform=iOS Simulator,OS=16.1,name=iPhone 14 Pro Max" CODE_SIGNING_ALLOWED=No
 
   unit-test:
     name: UnitTest
@@ -47,8 +43,6 @@ jobs:
       - name: xcode setup
         uses: maxim-lobanov/setup-xcode@v1
       - name: Run CICD Unit-Testing
-        run: |
-          cd CICD
-          xcodebuild clean test -project "CICD.xcodeproj" -scheme CICDTests -destination "platform=iOS Simulator,name=iPhone 11 Pro Max,OS=latest"
+        run: xcodebuild clean test -project "CICD.xcodeproj" -scheme CICDTests -destination "platform=iOS Simulator,name=iPhone 11 Pro Max,OS=latest"
         
 
