@@ -20,8 +20,8 @@ jobs:
           xcode-version: '15.2'
       - name: build
         run: |
-        cd GitHubActions
-        xcodebuild build -project GitHubActions.xcodeproj -scheme GitHubActions clean build -sdk iphoneos CODE_SIGNING_ALLOWED=No
+        cd CICD
+        xcodebuild build -project CICD.xcodeproj -scheme CICD clean build -sdk iphoneos CODE_SIGNING_ALLOWED=No
         
   ui-test:
     name: UITest
@@ -37,8 +37,8 @@ jobs:
           xcode-version: '15.2'
       - name: Run CICD-example UI-Testing
         run: |
-        cd GitHubActions
-        xcodebuild test -project GitHubActions.xcodeproj -scheme GitHubActions clean build -sdk iphoneos -destination "platform=iOS Simulator,OS=16.1,name=iPhone 14 Pro Max" CODE_SIGNING_ALLOWED=No
+        cd CICD
+        xcodebuild test -project CICD.xcodeproj -scheme CICDUITests clean build -sdk iphoneos -destination "platform=iOS Simulator,OS=16.1,name=iPhone 14 Pro Max" CODE_SIGNING_ALLOWED=No
 
   unit-test:
     name: UnitTest
